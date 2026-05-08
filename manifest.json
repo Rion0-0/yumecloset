@@ -1,0 +1,9 @@
+{
+  "name": "夢処方箋",
+  "short_name": "夢処方箋",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff8fb",
+  "theme_color": "#d98ca8",
+  "icons": []
+}

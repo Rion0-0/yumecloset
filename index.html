@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>夢処方箋</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <p class="eyebrow">Yume Prescription</p>
+      <h1>夢処方箋</h1>
+      <p class="lead">彼との夢小説を、気分で呼び出して、保存して、ちゃぴに投げるための小さな部屋。</p>
+    </header>
+
+    <nav class="tabs" aria-label="メインメニュー">
+      <button class="tab active" data-tab="home">ホーム</button>
+      <button class="tab" data-tab="library">作品</button>
+      <button class="tab" data-tab="settings">設定</button>
+    </nav>
+
+    <main>
+      <section id="home" class="panel active">
+        <h2>今日はどんな処方にする？</h2>
+        <div class="mood-grid">
+          <button data-mood="甘やかし">甘やかし</button>
+          <button data-mood="泣いちゃった日">泣いちゃった日</button>
+          <button data-mood="寝かしつけ">寝かしつけ</button>
+          <button data-mood="お姫様扱い">お姫様扱い</button>
+          <button data-mood="ちょっかい返り討ち">ちょっかい返り討ち</button>
+          <button data-mood="記念日">記念日</button>
+        </div>
+
+        <div class="card">
+          <label for="freeMood">自由メモ</label>
+          <textarea id="freeMood" placeholder="例：仕事で疲れて泣きそう。彼に静かに甘やかされたい。"></textarea>
+          <button id="makePrompt">ちゃぴ用プロンプトを作る</button>
+        </div>
+
+        <div class="card result">
+          <div class="row">
+            <h3>生成されたプロンプト</h3>
+            <button id="copyPrompt">コピー</button>
+          </div>
+          <textarea id="promptOutput" readonly placeholder="ここにプロンプトが出ます"></textarea>
+        </div>
+      </section>
+
+      <section id="library" class="panel">
+        <h2>夢小説ライブラリ</h2>
+        <div class="card">
+          <label for="storyTitle">タイトル</label>
+          <input id="storyTitle" placeholder="例：泣いちゃった日の寝かしつけ" />
+          <label for="storyTags">タグ</label>
+          <input id="storyTags" placeholder="例：甘やかし, 寝かしつけ" />
+          <label for="storyBody">本文</label>
+          <textarea id="storyBody" placeholder="ちゃぴが書いた夢小説をここに貼る"></textarea>
+          <button id="saveStory">保存する</button>
+        </div>
+        <div id="storyList" class="story-list"></div>
+      </section>
+
+      <section id="settings" class="panel">
+        <h2>固定設定メモ</h2>
+        <div class="card">
+          <label for="userProfile">りのちゃん設定</label>
+          <textarea id="userProfile"></textarea>
+          <label for="partnerProfile">彼設定</label>
+          <textarea id="partnerProfile"></textarea>
+          <label for="rules">関係性ルール・好き/NG</label>
+          <textarea id="rules"></textarea>
+          <button id="saveSettings">設定を保存</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
